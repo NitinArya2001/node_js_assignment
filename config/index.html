@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Node.js Tasks</title>
+</head>
+<body>
+  <h1>Task-1 --&gt; <span id="task1Result"></span></h1>
+  <h1>Task-2 --&gt; <span id="task2Result"></span></h1>
+  <h1>Task-3 --&gt; <span id="wordCount"></span></h1>
+
+  <script>
+    // Fetch the data from the server and update the HTML page
+    fetch('/tasks')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('task1Result').textContent = data.task1Result;
+        document.getElementById('task2Result').textContent = data.task2Result;
+        document.getElementById('wordCount').textContent = data.wordCount;
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  </script>
+</body>
+</html>
